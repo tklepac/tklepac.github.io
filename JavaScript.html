@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <p>Click the button to demonstrate the prompt box.</p>
+
+    <button onclick="ParseURLParameter()">Try it</button>
+
+    <p id="demo"></p>
+
+    <script>
+function ParseURLParameter()
+{
+    /*// */ USAGE: var PageName = ParseURLParameter("page");
+   // /*
+    var url = window.location.pathname;
+
+    window.console.log(url);
+
+    var ParametersArray = url.split('/');
+  //  /*
+    for (var i = 0; i < ParametersArray.lenght; i++)
+    {
+         var CurrentParameter = ParametersArray[i].split('=');
+         if (CurrentParameter[0] == Parameter)
+         {
+            return CurrentParameter[1];
+         }
+
+    }
+    
+    window.console.log(ParametersArray[ParametersArray.length - 1]);
+    
+    document.getElementById("demo").innerHTML =
+        ParametersArray[ParametersArray.length - 1]; 
+
+  //  */
+   /* // */ var url_string = "file:///C:/Users/Tklepac/Desktop/Ticket Web Page/JavaScript.html?tklepac==tklepac"; /*// */  window.location.href
+
+    var currentLocation = window.location;
+
+    var url = new URL(currentLocation);
+    var c = url.searchParams.get("search");
+
+    alert(c);
+}
+
+
+</script>
+
+</body>
+</html>
