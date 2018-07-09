@@ -1,6 +1,6 @@
 window.onload = function() { 
                 BoxFill(); 
-                document.getElementById("searchButton").click();
+              //  document.getElementById("searchButton").click();
               
               }
 
