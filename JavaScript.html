@@ -2,53 +2,92 @@
 <html>
 <body>
 
-    // To je "demo" skripta za parsat stvari iz url-ja..
-    
-    <p>Click the button to demonstrate the prompt box.</p>
 
-    <button onclick="ParseURLParameter()">Try it</button>
 
-    <p id="demo"></p>
 
-    <script>
-function ParseURLParameter()
-{
-    /*// */ USAGE: var PageName = ParseURLParameter("page");
-   // /*
-    var url = window.location.pathname;
 
-    window.console.log(url);
+ <button onclick="getJsonFromUrl()">Try me</button>
 
-    var ParametersArray = url.split('/');
-  //  /*
-    for (var i = 0; i < ParametersArray.lenght; i++)
-    {
-         var CurrentParameter = ParametersArray[i].split('=');
-         if (CurrentParameter[0] == Parameter)
-         {
-            return CurrentParameter[1];
-         }
 
-    }
-    
-    window.console.log(ParametersArray[ParametersArray.length - 1]);
-    
-    document.getElementById("demo").innerHTML =
-        ParametersArray[ParametersArray.length - 1]; 
+<p id="demo"></p>
 
-  //  */
-   /* // */ var url_string = "file:///C:/Users/Tklepac/Desktop/Ticket Web Page/JavaScript.html?tklepac==tklepac"; /*// */  window.location.href
+<script>
 
-    var currentLocation = window.location;
-
-    var url = new URL(currentLocation);
-    var c = url.searchParams.get("search");
-
-    alert(c);
+function getJsonFromUrl1() {
+  var query = location.search.substr(1);
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
 }
 
+function getJsonFromUrl(hashBased) {
+  var query;
+  if(hashBased) {
+    var pos = location.href.indexOf("?");
+    if(pos==-1) return [];
+    query = location.href.substr(pos+1);
+  } else {
+    query = location.search.substr(1);
+  }
+  var result = {};
+  query.split("&").forEach(function(part) {
+    if(!part) return;
+    part = part.split("+").join(" "); // replace every + with space, regexp-free version
+    var eq = part.indexOf("=");
+    var key = eq>-1 ? part.substr(0,eq) : part;
+    var val = eq>-1 ? decodeURIComponent(part.substr(eq+1)) : "";
+    var from = key.indexOf("[");
+    if(from==-1) result[decodeURIComponent(key)] = val;
+    else {
+      var to = key.indexOf("]",from);
+      var index = decodeURIComponent(key.substring(from+1,to));
+      key = decodeURIComponent(key.substring(0,from));
+      if(!result[key]) result[key] = [];
+      if(!index) result[key].push(val);
+      else result[key][index] = val;
+    }
+  });
+  return result;
+}
+
+console.log(getJsonFromUrl1());
 
 </script>
 
+
+
+
+
+<!--
+
+ function ParseUrl() {
+
+//we take query from url
+var query = window.location.search;
+var queryString = query.substring(1);
+
+
+//check if query exist
+if (queryString) {
+
+	var queryArray = queryString.split('&');
+	
+	for (var i = 0; i < queryArray.length; i++) {		
+			var pari = queryArray[i].split('=');
+	}
+	
+	console.log(queryArray);
+	}
+}
+
+-->
+
+
+
+
+</script>
 </body>
 </html>
