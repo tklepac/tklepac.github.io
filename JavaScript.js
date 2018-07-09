@@ -1,5 +1,6 @@
 window.onload = function() { 
                 BoxFill(); 
+                ButtonPush();
               //  document.getElementById("searchButton").click();
               
               }
@@ -76,4 +77,7 @@ console.log(getJsonFromUrl1().headline1);
 */
 BoxFill();
 
-
+function ButtonPush() {
+    document.getElementById("searchButton").click();
+}
+console.log(ButtonPush);
