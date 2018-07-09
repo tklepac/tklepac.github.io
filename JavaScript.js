@@ -55,9 +55,9 @@ var obj = getJsonFromUrl1();
 
 function BoxFill() {
 
-var search = document.getElementById("search1").innerHTML(getJsonFromUrl1().search1);
-var ticket_id = document.getElementById("ticket_id1").getJsonFromUrl1().ticket_id1;
-var headline = document.getElementById("headline1").getJsonFromUrl1().headline1;
+var search = document.getElementById("search1").value = getJsonFromUrl1().search1;
+var ticket_id = document.getElementById("ticket_id1").value = getJsonFromUrl1().ticket_id1;
+var headline = document.getElementById("headline1").value = getJsonFromUrl1().headline1;
 
 }
 
