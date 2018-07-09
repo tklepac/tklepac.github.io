@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Ticket Search - Beta </title>
+
+<style>
+	table, th, tr, td{
+		/*border: solid 1px; */
+		border-collapse: collapse; 
+		/*padding-right: 15px;*/
+	}
+
+
+
+</style>
+</head>
+
+<body>
+
+
+<script>
+
+function getJsonFromUrl(hashBased) {
+  var query;
+  if(hashBased) {
+    var pos = location.href.indexOf("?");
+    if(pos==-1) return [];
+    query = location.href.substr(pos+1);
+  } else {
+    query = location.search.substr(1);
+  }
+  var result = {};
+  query.split("&").forEach(function(part) {
+    if(!part) return;
+    part = part.split("+").join(" "); // replace every + with space, regexp-free version
+    var eq = part.indexOf("=");
+    var key = eq>-1 ? part.substr(0,eq) : part;
+    var val = eq>-1 ? decodeURIComponent(part.substr(eq+1)) : "";
+    var from = key.indexOf("[");
+    if(from==-1) result[decodeURIComponent(key)] = val;
+    else {
+      var to = key.indexOf("]",from);
+      var index = decodeURIComponent(key.substring(from+1,to));
+      key = decodeURIComponent(key.substring(0,from));
+      if(!result[key]) result[key] = [];
+      if(!index) result[key].push(val);
+      else result[key][index] = val;
+    }
+  });
+  return result;
+}
+</script>
+
+
+
+
+<table class="easy_ticket_src">
+	<tbody>
+		<tr>
+			<td id="search1">Search:</td>
+			<td>
+				<input type="text" name="" id="" class="ET_search" style="width:250px">
+			</td>
+		</tr>	
+
+<!-- -------------------------- -->
+		
+		<tr>
+			<td id="ticket_id">Ticket ID:</td>
+			<td>
+				<table id="" cellspacing="0" cellpadding="0" border-collapse="collapse;">
+				<tbody>
+					<tr>
+						<td>
+							<input name="" type="text" id="" class="ET_id" style="width:225px">
+						</td>
+					</tr>										
+				</tbody>
+				</table>
+			</td>
+		</tr>
+<br>
+<!-- -------------------------- -->
+<br>		
+		<tr>
+			<td id="headline">Headline:</td>
+			<td>
+				<table id="" cellspacing="0" cellpadding="0" border-collapse="collapse;">
+					<tbody>
+						<tr>
+							<td>
+								<input name="" type="text" id="" class="ET_headline" style="width:225px">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+
+<!-- -------------------------- -->
+
+		<tr>
+			<td id="add_opt">Additional options:</td>
+			<td>
+				<table cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+					<tbody>
+						<tr>
+							<td>
+								<input id="" type="checkbox" name="">
+								<label for="">Search in attachements</label> <!--FOR:isto kot za id od input -->
+							</td>
+						</tr>
+
+<!-- -------------------- -->
+
+						<tr>
+							<td>
+								<input id="" type="checkbox" name="" checked="checked">
+								<label for="">Search in item lists</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+
+<!-- -------------------------- -->
+
+		<tr>
+			<td></td>
+			<td align="right">
+				<input type="submit" name="" value="Search" onclick="getJsonFromUrl()" id="">
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+
+</body>
+</html>
