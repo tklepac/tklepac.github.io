@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html>
-<body>
 
-
-
-
-
- <button onclick="getJsonFromUrl()">Try me</button>
-
-
-<p id="demo"></p>
-
-<script>
 
 function getJsonFromUrl1() {
   var query = location.search.substr(1);
@@ -23,6 +10,10 @@ function getJsonFromUrl1() {
   return result;
 }
 
+
+
+
+/*
 function getJsonFromUrl(hashBased) {
   var query;
   if(hashBased) {
@@ -51,8 +42,12 @@ function getJsonFromUrl(hashBased) {
     }
   });
   return result;
-} 
- 
+}
+*/
+
+
+
+
 var obj = getJsonFromUrl1();
 
 
@@ -60,22 +55,20 @@ var obj = getJsonFromUrl1();
 
 function BoxFill() {
 
-var search = document.getElementById("search1").innerHTML = getJsonFromUrl1().search1;
-var ticket_id = document.getElementById("ticket_id1").innerHTML = getJsonFromUrl1().ticket_id1;
-var headline = document.getElementById("headline1").innerHTML = getJsonFromUrl1().headline1;
+var search = document.getElementById("search1").innerHTML(getJsonFromUrl1().search1);
+var ticket_id = document.getElementById("ticket_id1").getJsonFromUrl1().ticket_id1;
+var headline = document.getElementById("headline1").getJsonFromUrl1().headline1;
 
 }
+
+
+
 
 /*
 console.log(getJsonFromUrl1().search1);
 console.log(getJsonFromUrl1().ticket_id);
 console.log(getJsonFromUrl1().headline1);
 */
-BoxFill(); 
- 
- 
-</script>
+BoxFill();
 
 
-</body>
-</html>
