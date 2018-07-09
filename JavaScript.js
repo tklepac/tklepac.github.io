@@ -1,3 +1,8 @@
+window.onload = function() { 
+                BoxFill(); 
+                document.getElementById("searchButton").click();
+              
+              }
 
 
 function getJsonFromUrl1() {
