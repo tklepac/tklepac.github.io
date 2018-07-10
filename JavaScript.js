@@ -1,9 +1,7 @@
 window.onload = function() { 
                 BoxFill(); 
-                ButtonPush();
-              //  document.getElementById("searchButton").click();
-              
-              }
+                ButtonPush();             
+}
 
 
 function getJsonFromUrl1() {
@@ -75,9 +73,10 @@ console.log(getJsonFromUrl1().search1);
 console.log(getJsonFromUrl1().ticket_id);
 console.log(getJsonFromUrl1().headline1);
 */
-BoxFill();
+//BoxFill();
 
 function ButtonPush() {
     document.getElementById("searchButton").click();
+    alert("klik klik");
 }
-console.log(ButtonPush);
+
