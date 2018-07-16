@@ -1,6 +1,6 @@
 window.onload = function() { 
                 BoxFill(); 
-             // ButtonPush();             
+                ButtonPush();             
 }
 
 
@@ -38,8 +38,4 @@ console.log(getJsonFromUrl1().headline);
 function ButtonPush() {
     document.getElementById("searchButton").click();
     alert("klik klik");
-}
-
-window.onload = function(){
-    ButtonPush();
 }
